@@ -22,26 +22,42 @@ $(document).ready(function() {
   $('#fetch').on('click', function(){
     console.log("fetch!");
 
-    $.getJSON('db/group_members.json').done(function(res){
-      console.log('db file loaded');
-      console.log(res);
+    getGroupInfo().then(function(){
+      
+      for (var key in groupMembers ) {
+          var member = res[key];
 
-      // build a table, I should probably using a framework, anyway....
-
-      for (var key in res ) {
-
-        var member = res[key];
-
-        var $row = $('<tr>').appendTo('#members-table');
+          var $row = $('<tr>').appendTo('#members-table');
 
 
-        var $avatar = $('<td>').appendTo($row)
-        var $img = $('<img>').attr('src', member.image_48).css('border-radius', '5px').appendTo($avatar);
-        var $name = $('<td>').text(member.real_name).appendTo($row);
-        var $email = $('<td>').text(member.email).appendTo($row);
+          var $avatar = $('<td>').appendTo($row)
+          var $img = $('<img>').attr('src', member.image_48).css('border-radius', '5px').appendTo($avatar);
+          var $name = $('<td>').text(member.real_name).appendTo($row);
+          var $email = $('<td>').text(member.email).appendTo($row);
 
-      }
+        }
     })
+
+    // $.getJSON('db/group_members.json').done(function(res){
+    //   console.log('db file loaded');
+    //   console.log(res);
+    //
+    //   // build a table, I should probably using a framework, anyway....
+    //
+    //   for (var key in res ) {
+    //
+    //     var member = res[key];
+    //
+    //     var $row = $('<tr>').appendTo('#members-table');
+    //
+    //
+    //     var $avatar = $('<td>').appendTo($row)
+    //     var $img = $('<img>').attr('src', member.image_48).css('border-radius', '5px').appendTo($avatar);
+    //     var $name = $('<td>').text(member.real_name).appendTo($row);
+    //     var $email = $('<td>').text(member.email).appendTo($row);
+    //
+    //   }
+    // })
 
   });
 
