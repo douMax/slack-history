@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Slack History</title>
+    <!-- bulma and fontawesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- js files -->
+    <script src="js/jquery.js" charset="utf-8"></script>
+    <script src="js/slack.js" charset="utf-8"></script>
+    <script src="js/main.js" charset="utf-8"></script>
+
+
+  </head>
+
+  <body>
+  <section class="section">
+    <div id="download-div" class="container">
+      <h1 class="title">
+        Wdi 22
+      </h1>
+      <p class="subtitle">
+        Dive into memories
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div id="message-div" class="container">
+      <h3 class="title is-3">
+        Download Links:
+      </h3>
+
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <input id="token-input" class="input" type="password" placeholder="token">
+          <span class="icon is-small is-left">
+            <i class="fa fa-lock"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control has-icons-left">
+          <input id="id-input" class="input" type="text" placeholder="Group/Channel/DirectMessages ID">
+          <span class="icon is-small is-left">
+            <i class="fa fa-slack"></i>
+          </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control">
+          <a id="generate-links" class="button is-primary">Generate</a>
+        </p>
+      </div>
+
+      <p>
+        To generate download links you'll need:
+        <ul>
+          <li>
+            <strong>auth-token</strong>: you can generate your slack legacy token <a href="https://api.slack.com/custom-integrations/legacy-tokens" target="_blank">here</a>
+          </li>
+          <li>
+            <strong>channelID</strong>: get on slack web version and inspect the channels on the left panel.
+          </li>
+        </ul>
+      </p>
+      <hr>
+
+      <table class="table">
+        <tr>
+          <thead>
+            <th>History</th>
+            <th>Link</th>
+          </thead>
+          <tbody id="msgs-table">
+
+          </tbody>
+        </tr>
+      </table>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h3 class="title is-3">
+        Members in Wdi22:
+        <a id="fetch" class="button is-warning">See who's on the team</a>
+      </h3>
+      <p>
+        Click "See Who's on the team" to show all group members. Data source is a json file in db folder, needs to be host on the server to enable Cross origin requests. You can use  <span class="code">python -m SimpleHTTPServer 8000<span>
+      </p>
+      <hr>
+
+      <table class="table" id="members-table">
+        <tr>
+          <th>Avatar</th>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </table>
+    </div>
+
+  </section>
+
+
+
+
+  </body>
+</html>

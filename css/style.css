@@ -1,0 +1,20 @@
+/*body {
+  background-color: rgb(78, 159, 226);
+  color: #f6f6f6;
+  font-family: "Avenir", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  margin-left: 20px;
+}*/
+
+
+.code{
+  font-family: MONACO;
+  margin-left: 10px;
+  padding: 0 5px;
+  color: rgb(199, 50, 50);
+  background-color: rgb(240, 240, 240);
+}
