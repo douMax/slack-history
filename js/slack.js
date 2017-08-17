@@ -134,24 +134,16 @@ var getFiles = function(type,page){
   .done(function(res){
     console.log(res);
 
-
-
     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(res));
 
     // build a table row with a download link
     var $row = $('<tr>').appendTo('#msgs-table');
-
     $histroy = $('<td>').text("No." + fileCount).appendTo($row);
-
     $link = $('<td>').appendTo($row);
-
-
 
     $('<a>').text('Download as JSON').addClass('button is-info').attr('href', dataStr).attr('download', 'files_'+ groupID + '_' + fileCount + '.json').appendTo($link);
 
-
     if (res.paging.page !== res.paging.pages) {
-
       getFiles(type, page+1)
     }
 
