@@ -97,7 +97,7 @@ var getUserProfile = function(user){
   $.ajax({
     url: "https://slack.com/api/users.profile.get",
     data: {
-      token: "xoxp-3171645816-170786579969-225838729716-aae9da6d51db1c30d9f47b8d8aa09e8a",
+      token: myToken,
       user: user
     }
   })
