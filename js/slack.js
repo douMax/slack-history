@@ -1,5 +1,5 @@
 
-var grouID, myToken;
+var groupID, myToken;
 
 /*  generated at
 https://api.slack.com/custom-integrations/legacy-tokens
