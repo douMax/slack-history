@@ -102,7 +102,15 @@ var getUserProfile = function(user){
     }
   })
   .done(function(res){
-    groupMembers[user] = res.profile
+    groupMembers[user] = res.profile;
+    var member = res.profile;
+    
+    var $row = $('<tr>').appendTo('#members-table');
+
+    var $avatar = $('<td>').appendTo($row)
+    var $img = $('<img>').attr('src', member.image_48).css('border-radius', '5px').appendTo($avatar);
+    var $name = $('<td>').text(member.real_name).appendTo($row);
+    var $email = $('<td>').text(member.email).appendTo($row);
   })
 
 }

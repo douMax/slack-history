@@ -25,21 +25,7 @@ $(document).ready(function() {
     groupID = $('#id-input').val();
     myToken = $('#token-input').val();
 
-    $.when( getGroupInfo() ).done(function() {
-
-      for (var key in groupMembers ) {
-        var member = groupMembers[key];
-
-        var $row = $('<tr>').appendTo('#members-table');
-
-
-        var $avatar = $('<td>').appendTo($row)
-        var $img = $('<img>').attr('src', member.image_48).css('border-radius', '5px').appendTo($avatar);
-        var $name = $('<td>').text(member.real_name).appendTo($row);
-        var $email = $('<td>').text(member.email).appendTo($row);
-
-      }
-    });
+    getGroupInfo();
 
 
 

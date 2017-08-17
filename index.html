@@ -20,20 +20,11 @@
   <section class="section">
     <div id="download-div" class="container">
       <h1 class="title">
-        Wdi 22
+        Slack History
       </h1>
       <p class="subtitle">
         Dive into memories
       </p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div id="message-div" class="container">
-      <h3 class="title is-3">
-        Download Links:
-      </h3>
-
       <div class="field">
         <p class="control has-icons-left has-icons-right">
           <input id="token-input" class="input" type="password" placeholder="token">
@@ -50,12 +41,6 @@
           </span>
         </p>
       </div>
-      <div class="field">
-        <p class="control">
-          <a id="generate-links" class="button is-primary">Generate</a>
-        </p>
-      </div>
-
       <p>
         To generate download links you'll need:
         <ul>
@@ -69,7 +54,18 @@
           </li>
         </ul>
       </p>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div id="message-div" class="container">
+      <h3 class="title is-3">
+        Download Links:
+        <a id="generate-links" class="button is-primary">Generate</a>
+      </h3>
       <hr>
+
 
       <table class="table">
         <tr>
@@ -93,16 +89,21 @@
         <a id="fetch" class="button is-warning">See who's on the team</a>
       </h3>
       <p>
-        Click "See Who's on the team" to show all group members. Data source is a json file in db folder, needs to be host on the server to enable Cross origin requests. You can use  <span class="code">python -m SimpleHTTPServer 8000<span>
+        Click "See Who's on the team" to show all group members. Paste your token and channle id to fetch group members in the channel
       </p>
       <hr>
 
-      <table class="table" id="members-table">
-        <tr>
-          <th>Avatar</th>
-          <th>Name</th>
-          <th>Email</th>
-        </tr>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Avatar</th>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody id="members-table">
+
+        </tbody>
       </table>
     </div>
 
