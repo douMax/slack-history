@@ -16,6 +16,7 @@ var lastOldestTimeStamp = '';
 
 var fileCount = 1;
 
+
 /* fetch group history (recursive) */
 /* https://api.slack.com/methods/groups.history */
 var fetchGroupHistory = function(count, timeStamp){
@@ -70,7 +71,7 @@ var fetchGroupHistory = function(count, timeStamp){
 
 
 
-/*  get group info  */
+/*  get group info via api */
 var getGroupInfo = function(){
   $.ajax({
     url: "https://slack.com/api/groups.info",
@@ -91,7 +92,9 @@ var getGroupInfo = function(){
   })
 }
 
-/* get Members Profile */
+
+/* get users Profile */
+// and append each user's info into a table
 var getUserProfile = function(user){
 
   $.ajax({
@@ -104,7 +107,7 @@ var getUserProfile = function(user){
   .done(function(res){
     groupMembers[user] = res.profile;
     var member = res.profile;
-    
+
     var $row = $('<tr>').appendTo('#members-table');
 
     var $avatar = $('<td>').appendTo($row)
@@ -116,6 +119,7 @@ var getUserProfile = function(user){
 }
 
 
+/* get direct messages history */
 var getIM = function(){
   $.ajax({
     url: "https://slack.com/api/im.list",
@@ -129,6 +133,7 @@ var getIM = function(){
 };
 
 
+/* get shared files list */
 var getFiles = function(type,page){
   $.ajax({
     url: "https://slack.com/api/files.list",
